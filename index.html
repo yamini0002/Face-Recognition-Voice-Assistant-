@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis AI</title>
+    
+    <!-- Google Fonts for futuristic UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+
+    <!-- Ambient background glow orbs -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <div class="container d-flex flex-column justify-content-center align-items-center vh-100 position-relative z-1">
+        
+        <!-- Boot / Auth Stages with HUD Scanner Ring -->
+        <div id="Loader" class="status-stage text-center">
+            <div class="hud-ring"></div>
+            <h2 class="hud-title mt-4">INITIALIZING SYSTEM...</h2>
+        </div>
+        
+        <div id="FaceAuth" hidden class="status-stage text-center">
+            <div class="hud-ring scanning"></div>
+            <h2 class="hud-title mt-4">READY FOR FACE AUTHENTICATION</h2>
+            <p class="text-muted-custom">Look directly into the camera</p>
+        </div>
+        
+        <div id="FaceAuthSuccess" hidden class="status-stage text-center">
+            <div class="hud-ring success">
+                <i class="bi bi-check-lg"></i>
+            </div>
+            <h2 class="hud-title text-success-glow mt-4">IDENTITY VERIFIED</h2>
+        </div>
+        
+        <div id="HelloGreet" hidden class="status-stage text-center">
+            <h2 class="hud-title welcome-text">WELCOME BACK</h2>
+        </div>
+        
+        <div id="Start" hidden class="status-stage text-center">
+            <div class="hud-ring"></div>
+            <h2 class="hud-title mt-4">STARTING JARVIS...</h2>
+        </div>
+
+        <!-- Main Assistant Interface -->
+        <div id="Oval" hidden class="jarvis-dashboard w-100">
+            
+            <!-- Header Bar -->
+            <div class="dashboard-header d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="status-dot"></span>
+                    <span class="brand-name">J.A.R.V.I.S</span>
+                </div>
+                <span class="badge-system">ONLINE</span>
+            </div>
+
+            <!-- SiriWave Visualizer Container -->
+            <div class="wave-wrapper mb-3">
+                <div id="SiriWave"></div>
+            </div>
+            
+            <h3 class="siri-message text-center mb-3">Ask me anything</h3>
+            
+            <!-- Glassmorphic Chat Box -->
+            <div id="chat-canvas-body" class="chat-box p-3 mb-3"></div>
+            
+            <!-- Modern Pill Input Bar with Stop Button -->
+            <div class="input-pill-wrapper">
+                <input type="text" id="textInput" class="chat-input" placeholder="Ask Jarvis or type a command..." autocomplete="off">
+                <button class="action-btn send-btn" id="sendBtn" title="Send">
+                    <i class="bi bi-send-fill"></i>
+                </button>
+                <button class="action-btn mic-btn" id="micBtn" title="Voice Input">
+                    <i class="bi bi-mic-fill"></i>
+                </button>
+                <button class="action-btn stop-btn" id="stopBtn" title="Stop Speaking">
+                    <i class="bi bi-stop-fill"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"></script>
+    <script src="https://unpkg.com/siriwave/dist/siriwave.umd.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
